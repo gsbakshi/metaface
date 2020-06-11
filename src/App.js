@@ -116,17 +116,6 @@ const particleOptions = {
   },
   "retina_detect": true
 };
-// const particleOptions = {
-//   particles: {
-//     number: {
-//       value: 64,
-//       density: {
-//         enable: true,
-//         value_area: 800
-//       }
-//     }
-//   }
-// };
 
 class App extends Component {
   constructor() {
