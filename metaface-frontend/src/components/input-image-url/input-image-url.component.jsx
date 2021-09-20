@@ -1,7 +1,8 @@
 import React from 'react';
-import TextBox from '../text-box/text-box.component';
 
 import './input-image-url.styles.scss';
+
+import TextBox from '../text-box/text-box.component';
 
 const InputImageUrl = ({ onInputChange, onEnter, onSubmit }) => (
     <div className='input-image-container'>
