@@ -1,4 +1,4 @@
-![image](https://github.com/gsbakshi/metaface/blob/master/logos/cover.png)
+![image](https://github.com/gsbakshi/metaface/blob/master/images/cover.png)
 
 # 
 
