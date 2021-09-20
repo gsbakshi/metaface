@@ -1,27 +1,29 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import './content-container.styles.scss';
 
 import ContentData from '../content-data/content-data.component';
 import FaceDetectionDisplay from '../face-detection-display/face-detection-display.component';
 
+// const app = new Clarifai.App({
+//     apiKey: process.env.CLARIFAI_API_KEY
+// });
+
 const ContentContainer = () => {
     const [input, setInput] = useState('');
+    const [imageUrl, setImageUrl] = useState('https://samples.clarifai.com/face-det.jpg');
 
     const onInputChange = event => {
         const value = event.target.value;
-        // console.log('onInputChange :     ' + input);
         setInput(value);
     };
 
     const onEnter = async event => {
         const value = input.trim();
-        // console.log('trimmed input :     ' + value);
         try {
             if (event.which === 13) {
                 if (value.length !== 0) {
                     onSubmit();
-                    // console.log('onEnter :     ' + value);
                 }
             }
         } catch (error) {
@@ -30,7 +32,9 @@ const ContentContainer = () => {
     };
 
     const onSubmit = () => {
-        console.log('Submit');
+        const value = input.trim();
+        console.log('Submit :       ', value);
+        setImageUrl(value);
         // Trigger detection logic
     };
 
@@ -49,7 +53,9 @@ const ContentContainer = () => {
                     onSubmit={ onSubmit }
                     clear={ clear }
                 />
-                <FaceDetectionDisplay />
+                <FaceDetectionDisplay
+                    imageUrl={imageUrl}
+                />
             </div>
         </div>
     );
