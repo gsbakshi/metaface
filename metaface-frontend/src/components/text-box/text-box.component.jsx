@@ -2,15 +2,15 @@ import React from 'react';
 
 import './text-box.styles.scss';
 
-const TextBox = ({ placeholder, onInputChange, onEnter, input, autofocus, component }) => (
+const TextBox = ({ placeholder, onChange, onKeyDown, value, autofocus, component }) => (
     <div className='text-box-container'>
         <input
             className='text-box'
             type='text'
             placeholder={ placeholder }
-            onChange={ onInputChange }
-            onKeyDown={ onEnter }
-            value={ input }
+            onChange={ onChange }
+            onKeyDown={ onKeyDown }
+            value={ value }
             autoFocus={ autofocus ?? false }
         />
         { component }
