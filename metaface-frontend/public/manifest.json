@@ -1,6 +1,6 @@
 {
   "short_name": "metafaces",
-  "name": "Metafaces - Face Recoginition",
+  "name": "Metafaces - Face Detection",
   "icons": [
     {
       "src": "favicon.ico",

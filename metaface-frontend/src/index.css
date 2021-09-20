@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #E9EEEE;
+  height: 100vh;
+  width: 100vw;
+  color: black;
 }
 
 code {
@@ -30,3 +34,24 @@ code {
 /* Gradient Alt Edge 1 */
 /* background: #366CD9; */
 
+
+ /* Extra small devices (phones, 600px and down) */
+ /* @media only screen and (max-width: 600px) {
+     width: 30vw;
+ } */
+ /* Small devices (portrait tablets and large phones, 600px and up) */
+ /* @media only screen and (min-width: 600px) {
+     width: 27vw;
+ } */
+ /* Medium devices (landscape tablets, 768px and up) */
+ /* @media only screen and (min-width: 768px) {
+     width: 20vw;
+ } */
+ /* Large devices (laptops/desktops, 992px and up) */
+ /* @media only screen and (min-width: 992px) {
+     width: 18vw;
+ } */
+ /* Extra large devices (large laptops and desktops, 1200px and up) */
+ /* @media only screen and (min-width: 1200px) {
+     width: 16vw;
+ } */

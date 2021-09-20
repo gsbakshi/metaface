@@ -1,14 +1,22 @@
-// import logo from './logo.svg';
 import './App.css';
 
-function App() {
+import Navigation from './components/navigation/navigation.component';
+import ContentContainer from './pages/content-container/content-container.component';
+
+const App = () => {
   return (
     <div className="App">
       <Navigation />
-      {/* <Logo />
-      <ImageLinkForm />
-      <FaceRecoginition /> */}
-      {/* <header className="App-header">
+      <ContentContainer />
+      
+    </div>
+  );
+}
+
+export default App;
+
+// eslint-disable-next-line no-lone-blocks
+{/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -22,8 +30,3 @@ function App() {
           Learn React
         </a>
       </header> */}
-    </div>
-  );
-}
-
-export default App;

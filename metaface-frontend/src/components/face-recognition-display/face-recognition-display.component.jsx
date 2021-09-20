@@ -1,6 +1,8 @@
 import React from 'react';
 
-function FaceRecognition({ imageUrl }) {
+import './face-recognition-display.styles.scss';
+
+const FaceRecognitionDisplay = ({ imageUrl }) => {
     return (
         <div className='tc'>
             <img scr={ imageUrl } alt='face detect' />
@@ -8,4 +10,4 @@ function FaceRecognition({ imageUrl }) {
     );
 }
 
-export default FaceRecognition;
+export default FaceRecognitionDisplay;
