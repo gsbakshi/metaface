@@ -2,17 +2,10 @@ import React from "react";
 
 import './rank-counter.styles.scss';
 
-const RankCounter = () => {
-  return (
-    <div>
-      <div className="f3">
-        {"Your current rank is..."}
-      </div>
-      <div className="f1">
-        {'#5'}
-      </div>
-    </div>
-  );
-}
+const RankCounter = ({count}) => (
+  <div className='rank-counter'>
+    { `${count ?? 0} images detected ` }
+  </div>
+);
 
 export default RankCounter;

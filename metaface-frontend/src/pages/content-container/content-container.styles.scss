@@ -1,25 +1,42 @@
+$radius: 0.32em;
+
 .content-container {
-    flex-grow: 6;
     height: calc(100vh - 14em);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     
     .content {
         background-color: #E9EEEE;
-        padding: 4em 2em;
         display: flex;
         justify-content: center;
-        border-radius: 0.32em;
+        border-radius: $radius;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
-                    0 -2px 50px 0 rgba(0, 0, 0, 0.1);
+                    0 -2px 5px 0 rgba(0, 0, 0, 0.1);
+                    
+        .content-data {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 2em;
+            height: 50vmin;
+            width: 27vmax;
+            max-height: fit-content;
+            min-height: min-content;
+            border-radius: $radius 0 0 $radius;
+        }
     }
 
-     @media screen and (max-width: 600px) {
+    @media screen and (max-width: 600px) {
         height: calc(100vh - 13.12em);
 
         .content {
             flex-direction: column;
+
+            .content-data {
+                border-radius: $radius $radius 0 0;
+            }
         }
     }
 }

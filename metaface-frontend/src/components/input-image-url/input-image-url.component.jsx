@@ -1,14 +1,39 @@
 import React from 'react';
+import TextBox from '../text-box/text-box.component';
 
 import './input-image-url.styles.scss';
 
-const InputImageUrl = ({ onInputChange, onSubmit }) => (
-    // pa4 br3 shadow-2 mh7 mv4 form
+const InputImageUrl = ({ onInputChange, onEnter, onSubmit }) => (
     <div className='input-image-container'>
-        {/* f4 pv2 ph3 w-70 center bw0 outline-0 */}
-        <input className='url-input' type='text' onChange={ onInputChange } />
-        {/* w-30 grow f4 ph3 pv2 white butt bw0 outline-0 pointer */}
-        <button className='detect' onClick={ onSubmit } >Detect</button>
+        {/* <input
+            className='url-input'
+            type='text'
+            placeholder='Paste image link'
+            onChange={ onInputChange }
+            onKeyDown={ onEnter }
+            // value={ input }
+            // autoFocus={ true }
+            />
+        <button
+            className='detect'
+            onClick={ onSubmit }
+        >
+            <i class='fa fa-angle-right' />
+        </button> */}
+    <TextBox
+        className='textbox'
+        placeholder='Paste image link'
+        component={
+            <button
+                className='detect'
+                onClick={ onSubmit }
+                onChange={ onInputChange }
+                onKeyDown={ onEnter }
+            >
+                <i class='fa fa-angle-right' />
+            </button>
+        }
+    />
     </div>
 );
 
