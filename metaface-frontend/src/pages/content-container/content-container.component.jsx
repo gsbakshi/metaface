@@ -7,9 +7,10 @@ import FaceRecoginitionDisplay from '../../components/face-recognition-display/f
 
 const ContentContainer = () => (
     <div className='content-container'>
-        { 'Bot training to detect human faces in your static media' }
-        <InputImageUrl />
-        <FaceRecoginitionDisplay />
+        <div className='content'>
+            <InputImageUrl />
+            <FaceRecoginitionDisplay />
+        </div>
     </div>
 );
 

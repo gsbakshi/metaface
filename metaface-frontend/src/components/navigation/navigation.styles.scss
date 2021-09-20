@@ -2,20 +2,16 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
-    background-color: transparent;
+    background-color: #E9EEEE;
     padding: 1.4em 2rem;
     position: sticky;
     top: 0;
     z-index: 99;
-
-    @media screen and (max-width: 600px) {
-        padding: 1.6em 2em;
-    }
   
     .logo-container {
         align-self: center;
         align-items: center;
-        width: calc(10.2em + 2vmin);;
+        width: calc(10.2em + 2vmin);
         justify-content: flex-start;
     }
 
@@ -30,12 +26,24 @@
             text-decoration: none;
             padding: 0px 15px;
             font-size: 1em;
-            // font-size: calc(0.6em + 1.2vmin);
             cursor: pointer;
             
             &:hover {
                 opacity: 0.6;
             }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        padding: 1.6em 2em;
+        margin-bottom: 10px;
+
+        .logo-container {
+            width: calc(8.2em + 2vmin);
+        }
+
+        .options, .option {
+            font-size: 0.7em;
         }
     }
 }

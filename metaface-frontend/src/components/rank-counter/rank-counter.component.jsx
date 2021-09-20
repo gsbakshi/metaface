@@ -1,6 +1,8 @@
 import React from "react";
 
-function Rank() {
+import './rank-counter.styles.scss';
+
+const RankCounter = () => {
   return (
     <div>
       <div className="f3">
@@ -13,4 +15,4 @@ function Rank() {
   );
 }
 
-export default Rank;
+export default RankCounter;

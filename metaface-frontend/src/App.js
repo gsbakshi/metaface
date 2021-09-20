@@ -2,13 +2,14 @@ import './App.css';
 
 import Navigation from './components/navigation/navigation.component';
 import ContentContainer from './pages/content-container/content-container.component';
+import Footer from './components/footer/footer.components';
 
 const App = () => {
   return (
     <div className="App">
       <Navigation />
       <ContentContainer />
-      
+      <Footer />
     </div>
   );
 }
