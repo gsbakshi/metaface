@@ -1,0 +1,47 @@
+$radius: 0.32em;
+
+.face-detection-container {
+    background: linear-gradient(115deg, rgba(208, 233, 13, 0.5) -1.88%, rgba(21, 54, 241, 0.6) 73.36%);
+    border-radius: 0 $radius $radius 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 27vw;
+    padding: 2em;
+    
+    .input-image {
+        display: flex;
+        width: 27vw;
+        justify-content: center;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        
+        img {
+            width: 27vw;
+            object-fit: cover;
+        }
+        
+        .bounding-box {
+            margin: auto;
+            position: absolute;
+            box-shadow: 0 0 0 3px #149df2 inset;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+    }
+    
+    @media screen and (max-width: 600px) {
+        border-radius: 0 0 $radius $radius;
+        width: auto;
+        height: 40vmin;
+
+        .input-image {
+            margin: auto;
+            height: 100%;
+        }
+    }
+}

@@ -4,8 +4,8 @@ import './content-data.styles.scss';
 
 import { ReactComponent as Logo } from '../../logos/default-monochrome.svg';
 
-import InputImageUrl from '../../components/input-image-url/input-image-url.component';
-import RankCounter from '../../components/rank-counter/rank-counter.component';
+import InputImageUrl from '../input-image-url/input-image-url.component';
+import RankCounter from '../rank-counter/rank-counter.component';
 
 const ContentData = ({ input, onInputChange, onEnter, onSubmit, clear }) => (
     <div className='content-data'>
