@@ -1,0 +1,28 @@
+{
+  "name": "metaface",
+  "version": "1.0.0",
+  "description": "A face detection application using Clarifai API using React and Express",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsbakshi/metaface.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gsbakshi/metaface/issues"
+  },
+  "homepage": "https://github.com/gsbakshi/metaface#readme",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "cd server && npm start",
+    "build": "cd client && npm run build",
+    "dev": "concurrently --kill-others-on-fail \"npm server\" \"npm client\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1"
+  }
+}
