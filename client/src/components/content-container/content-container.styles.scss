@@ -1,20 +1,19 @@
 $radius: 0.32em;
 
 .content-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    background-color: #e9eeee;
     display: flex;
     justify-content: center;
-    align-items: center;
+    border-radius: $radius;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 -2px 5px 0 rgba(0, 0, 0, 0.1);
 
-    .content {
-        background-color: #E9EEEE;
-        display: flex;
-        justify-content: center;
-        border-radius: $radius;
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
-                    0 -2px 5px 0 rgba(0, 0, 0, 0.1);
-
-        @media screen and (max-width: 600px) {
-                flex-direction: column;
-        }
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
     }
+  }
 }

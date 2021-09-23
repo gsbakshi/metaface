@@ -1,0 +1,25 @@
+.persons-detected {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+.clear {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: small;
+  font-weight: 500;
+  opacity: 0.6;
+  cursor: pointer;
+
+  .fa {
+    margin-right: 0.5em;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

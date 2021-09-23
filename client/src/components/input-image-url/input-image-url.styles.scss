@@ -1,27 +1,27 @@
 .input-image-container {
-    input:not(:placeholder-shown) + button {
-        display: block;
-    }
+  input:not(:placeholder-shown) + button {
+    display: block;
+  }
 
+  button {
+    display: none;
+    margin: 0.5em;
+    padding: 0 1em;
+    border: none;
+    border-radius: 0.4em;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.8);
+    background-color: #1536f1;
+    color: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+
+    .fa {
+      font-size: 20px;
+    }
+  }
+
+  &:focus-within {
     button {
-        display: none;
-        margin: 0.5em;
-        padding: 0 1em;
-        border: none;
-        border-radius: 0.4em;
-        box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.8);
-        background-color: #1536F1;
-        color: rgba(255, 255, 255, 0.9);
-        cursor: pointer;
-
-        .fa {
-            font-size: 20px;
-        }
+      display: block;
     }
-
-    &:focus-within {
-        button {
-            display: block;
-        }
-    }
+  }
 }
