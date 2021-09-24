@@ -1,6 +1,9 @@
 $radius: 0.32em;
 
-.content-data {
+.card-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,37 +14,14 @@ $radius: 0.32em;
   border-radius: $radius 0 0 $radius;
 
   .data {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     margin: auto 0;
     padding: 2em 0;
     position: relative;
-    display: flex;
     flex-direction: column;
-
-    .persons-detected {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-    }
-
-    .clear {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      font-size: small;
-      font-weight: 500;
-      opacity: 0.6;
-      cursor: pointer;
-
-      .fa {
-        margin-right: 0.5em;
-      }
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
   }
 
   .option {
@@ -55,6 +35,10 @@ $radius: 0.32em;
 
     &:hover {
       opacity: 0.6;
+
+      &.alt {
+        color: #1536f1;
+      }
     }
   }
 

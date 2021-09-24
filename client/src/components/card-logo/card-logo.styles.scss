@@ -1,4 +1,18 @@
 .logo-container {
-  width: calc(10.2em + 2vmin);
-  margin: 0.4em auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: contain;
+  
+  .logo {
+    width: 60%;
+    height: 100%;
+    object-fit: contain;
+    margin: calc(0.1vmin);
+    
+  }
+  
+  @media screen and (max-width: 600px) {
+    padding: 0 10px;
+  }
 }

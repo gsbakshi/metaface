@@ -9,11 +9,13 @@ const TextBox = ({
   value,
   autofocus,
   component,
+  inputType,
+  altOption
 }) => (
-  <div className="text-box-container">
+  <div className={`${altOption ? "alt" : ""} text-box-container`}>
     <input
       className="text-box"
-      type="text"
+      type={`${ inputType ? inputType : 'text'}`}
       placeholder={placeholder}
       onChange={onChange}
       onKeyDown={onKeyDown}

@@ -1,0 +1,58 @@
+$radius: 0.32em;
+
+.App {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+
+  .a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .page-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      background-color: #e9eeee;
+      justify-content: center;
+      border-radius: $radius;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+        0 -2px 5px 0 rgba(0, 0, 0, 0.1);
+
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+button.form-button {
+  margin: 1.5em 0;
+  padding: 1em;
+  border: none;
+  border-radius: 0.4em;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.8);
+  background-color: #1536f1;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+    opacity: 0.8;
+  }
+}
