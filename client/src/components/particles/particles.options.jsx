@@ -15,7 +15,7 @@ const options = {
     },
     modes: {
       bubble: {
-        distance: 400,
+        distance: 200,
         duration: 2,
         opacity: 0.8,
         size: 40,
@@ -53,7 +53,7 @@ const options = {
       enable: true,
       outMode: "bounce",
       random: false,
-      speed: 4.5,
+      speed: 3,
       straight: false,
     },
     number: {

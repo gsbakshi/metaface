@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import "./App.scss";
 
-// import ConfiguredParticles from "./components/particles/particles.component";
+import ConfiguredParticles from "./components/particles/particles.component";
 import Footer from "./components/footer/footer.components";
 import HomePage from "./pages/home-page/home-page.component";
 import SignInPage from "./pages/sign-in-page/sign-in-page.component";
@@ -13,26 +13,17 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
 
   const loadUser = (data) => setCurrentUser(data);
-
-  const updateRank = () => {
-    console.log("yaya");
-    // fetch("http://localhost:3000/image", {
-    //   method: "put",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({
-    //     id: currentUser.id,
-    //   }),
-    // })
-    //   .then((response) => response.json())
-    //   .then((count) => {
-    // this.setState(Object.assign(this.state.user, { entries: count }));
-    // })
-    // .catch(console.log);
+  const logout = () => {
+    setCurrentUser(null);
   };
+  
+  const updateEntries = (count) =>
+    setCurrentUser(Object.assign(currentUser, { entries: count }));
+
 
   return (
     <div className="App">
-      {/* <ConfiguredParticles /> */}
+      <ConfiguredParticles />
       <div className="page-container">
         <div className="content">
           <Switch>
@@ -42,9 +33,9 @@ const App = () => {
               render={() =>
                 currentUser ? (
                   <HomePage
-                    name={currentUser.name}
-                    entries={currentUser.entries}
-                    updateRank={updateRank}
+                    user={currentUser}
+                    updateEntries={updateEntries}
+                    logout={logout}
                   />
                 ) : (
                   <Redirect to="/signin" />
