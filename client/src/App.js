@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import "./App.scss";
@@ -16,10 +16,9 @@ const App = () => {
   const logout = () => {
     setCurrentUser(null);
   };
-  
-  const updateEntries = (count) =>
-    setCurrentUser(Object.assign(currentUser, { entries: count }));
 
+  const updateEntries = (count) =>
+    setCurrentUser({...currentUser, entries: count });
 
   return (
     <div className="App">
