@@ -23,9 +23,14 @@ const SignUpPage = ({ loadUser }) => {
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data) {
+          if (data.id) {
             loadUser(data);
-            history.push("/");
+          } else {
+            // TODO make better alert dialog for security policy compliance
+            alert("invalid credentials");
+            setEmail("");
+            setName("");
+            setPassword("");
           }
         })
         .catch(console.log);

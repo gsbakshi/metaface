@@ -21,9 +21,13 @@ const SignInPage = ({ loadUser }) => {
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data) {
+          if (data.id) {
             loadUser(data);
-            history.push("/");
+          } else {
+            // TODO make better alert dialog
+            alert("wrong credentials");
+            setEmail("");
+            setPassword("");
           }
         })
         .catch(console.log);
