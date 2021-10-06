@@ -53,13 +53,23 @@ $radius: 0.32em;
     height: 40vmin;
 
     .input-image {
-      height: 40vmin;
       width: fit-content;
 
       img {
-        width: fit-content;
-        height: 40vmin;
-        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+  @media screen and (max-width: 300px) {
+    border-radius: 0 0 $radius $radius;
+    width: auto;
+    height: 40vmin;
+
+    .input-image {
+      width: fit-content;
+
+      img {
+        width: 80%;
       }
     }
   }
