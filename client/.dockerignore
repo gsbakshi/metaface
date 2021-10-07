@@ -1,5 +1,7 @@
 .dockerignore
 Dockerfile
+# comment out during development
+.dockershell.sh
 
 .git
 .gitignore

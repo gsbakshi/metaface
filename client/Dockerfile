@@ -5,6 +5,7 @@ ENV RUNNING_IN_DOCKER true
 ENV CI=true
 ARG PORT=3000
 ENV PORT $PORT
+EXPOSE $PORT
 
 ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
@@ -20,8 +21,8 @@ RUN apk --no-cache add dumb-init curl git \
     # && mkdir -p /home/node/.antigen \
     # && curl -L git.io/antigen > /home/node/.antigen/antigen.zsh \
     # && touch /home/node/.zshrc \
-    # && chown -R node:node /home/node/.zshrc \
-    && chown -R node:node /home/node/app /home/node/.antigen
+    # && chown -R node:node /home/node/.zshrc /home/node/.antigen \
+    && chown -R node:node /home/node/app 
 
 # COPY .dockershell.sh /home/node/.zshrc
 
@@ -37,10 +38,11 @@ RUN npm ci --only=production
 COPY --chown=node:node ./ .
 
 USER node
-RUN rm -rf .dockershell.sh \
-    && /bin/zsh /home/node/.zshrc
 
-EXPOSE $PORT
+# Only for development use. When in use, also remove the .dockershell.sh file in .dockerignore
+# RUN rm -rf .dockershell.sh \
+#     && /bin/zsh /home/node/.zshrc
+
 CMD ["dumb-init", "npm", "start"]
 
 FROM development AS builder
