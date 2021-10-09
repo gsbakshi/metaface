@@ -1,0 +1,85 @@
+version: "3.8"
+
+services:
+  # Client - Frontend
+  client:
+    container_name: client
+    build:
+      context: ./client
+      target: development
+      args:
+        - NODE_ENV=development
+        - PORT=3000
+    environment:
+      - CI=true
+    working_dir: /home/node/app
+    volumes:
+      - ./client/src:/home/node/app/src:ro
+      - /home/node/app/node_modules
+    networks:
+      - client-side
+    ports:
+      - 3000:3000
+
+  # Express Server - Backend
+  server:
+    container_name: server
+    build:
+      context: ./server
+      args:
+        - NODE_ENV=development
+        - PORT=80
+    restart: always
+    env_file:
+      - ./.env
+    environment:
+      POSTGRES_URI: postgres://metaface:docker@postgres:5432/metaface
+      # REDIS_URI: redis://redis:6379
+    working_dir: /home/node/app
+    command: npm run start-watch
+    volumes:
+      - ./server:/home/node/app
+      - backend-cache:/home/node/app/node_modules
+    networks:
+      - client-side
+      - server-side
+    ports:
+      - 80:80
+      - 9229:9229
+      - 9230:9230
+
+  # Redis
+  # redis:
+  #   container_name: redis
+  #   image: redis
+  #   ports:
+  #     - 6379:6379
+
+  # PostgreSQL
+  postgres:
+    container_name: postgres
+    build: ./postgres
+    restart: always
+    environment:
+      POSTGRES_USER: metaface
+      POSTGRES_PASSWORD: docker
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    networks:
+      - server-side
+    ports:
+      - 5432:5432
+
+# secrets:
+#   pg-password:
+#     file: secrets/pg_password.txt
+#   clarifai-api:
+#     file: secrets/clarifai_api_key.txt
+
+volumes:
+  backend-cache: {}
+  pg-data: {}
+
+networks:
+  client-side: {}
+  server-side: {}
