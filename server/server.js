@@ -1,38 +1,27 @@
 const express = require("express");
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcryptjs");
 const cors = require("cors");
 const knex = require("knex");
 const morgan = require("morgan");
 
-if (process.env.NODE_ENV !== "production")
-  require("dotenv").config({ path: "../.env" });
-
-const register = require('./controllers/register');
-const signin = require('./controllers/signin');
-const profile = require('./controllers/profile');
+const register = require("./controllers/register");
+const signin = require("./controllers/signin");
+const profile = require("./controllers/profile");
 const image = require("./controllers/image");
-const auth = require('./controllers/auth');
+const auth = require("./controllers/auth");
 
-//Database Setup
 const db = knex({
   client: "pg",
-  // Dockerized
-  // connection: process.env.POSTGRES_URI
-  connection: {
-    host: "127.0.0.1",
-    user: "gbakshi",
-    password: "",
-    database: "metaface",
-  },
+  connection: process.env.POSTGRES_URI,
 });
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT;
 
 const whitelist = ["http://localhost:3000"];
 const corsOptions = {
   origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
@@ -52,14 +41,33 @@ app.use(express.urlencoded({ extended: false }));
 // app.put('/image', auth.requireAuth, image.handleImage(db))
 // app.post('/imageurl', auth.requireAuth, image.handleApiCall)
 
-app.get('/', (req, res) => { res.send("success") })
-app.post('/signin', signin.handleSignin(db, bcrypt))
+app.get("/", (req, res) => {
+  console.log(process.env.POSTGRES_URI);
+  res.send("success");
+});
+
+app.post("/signin", signin.handleSignin(db, bcrypt));
 app.post("/register", register.handleRegister(db, bcrypt));
-app.get('/profile/:id', profile.handleProfileGet(db))
+app.get("/profile/:id", profile.handleProfileGet(db));
 app.put("/image", image.handleImage(db));
 app.post("/imageurl", image.handleApiCall);
+
+app.get("/healthcheck", (req, res) => {
+  // do app logic here to determine if app is truly healthy
+  // you should return 200 if healthy, and anything else will fail
+  // if you want, you should be able to restrict this to localhost (include ipv4 and ipv6)
+  res.send("Healthy");
+});
 
 app.listen(port, (error) => {
   if (error) throw error;
   console.log("Server running on port " + port);
 });
+
+async function closeGracefully(signal) {
+  console.log(`*^!@4=> Received signal to terminate: ${signal}`);
+  app.removeAllListeners();
+  process.exit();
+}
+process.on("SIGINT", closeGracefully);
+process.on("SIGTERM", closeGracefully);
