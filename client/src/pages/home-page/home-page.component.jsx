@@ -52,7 +52,7 @@ const HomePage = ({ user, updateEntries, logout }) => {
     setImageUrl(value);
     setShowImageOutput(true);
 
-    fetch("http://localhost:3001/imageurl", {
+    fetch("http://localhost:80/imageurl", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +64,7 @@ const HomePage = ({ user, updateEntries, logout }) => {
       .then((response) => response.json())
       .then((response) => {
         if (response) {
-          fetch("http://localhost:3001/image", {
+          fetch("http://localhost:80/image", {
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

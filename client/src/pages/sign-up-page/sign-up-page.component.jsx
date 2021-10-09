@@ -12,7 +12,7 @@ const SignUpPage = ({ loadUser }) => {
 
   const handleSubmit = async (event) => {
     try {
-      fetch("http://localhost:3001/register", {
+      fetch("http://localhost:80/register", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
