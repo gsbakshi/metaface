@@ -5,11 +5,8 @@ setup:
 
 build:
   docker:
-    client: ./client/Dockerfile
     server: ./server/Dockerfile
     redis: ./redis/Dockerfile
-  # config:
-  #   RAILS_ENV: development
-  #   FOO: bar
+
 run:
   server: npm run start
