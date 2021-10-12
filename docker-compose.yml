@@ -55,7 +55,9 @@ services:
 
   # Redis - Cache
   redis:
-    image: redis:6.2.6-alpine3.14
+    container_name: redis
+    build:
+      context: ./redis
     networks:
       - server-side
     ports:
