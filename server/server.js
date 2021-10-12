@@ -8,7 +8,8 @@ const register = require("./controllers/register");
 const signin = require("./controllers/signin");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
-const auth = require("./controllers/auth");
+
+const auth = require("./middleware/auth");
 
 const db = knex({
   client: "pg",
@@ -34,23 +35,17 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// app.post('/signin', signin.signinAuthentication(db, bcrypt))
-// app.post('/register', register.handleRegister( db, bcrypt) )
-// app.get('/profile/:id', auth.requireAuth, profile.handleProfileGet(db))
-// app.post('/profile/:id', auth.requireAuth, profile.handleProfileUpdate( db) )
-// app.put('/image', auth.requireAuth, image.handleImage(db))
-// app.post('/imageurl', auth.requireAuth, image.handleApiCall)
 
 app.get("/", (req, res) => {
-  console.log(process.env.POSTGRES_URI);
   res.send("success");
 });
 
-app.post("/signin", signin.handleSignin(db, bcrypt));
+app.post("/signin", signin.signinAuthentication(db, bcrypt));
 app.post("/register", register.handleRegister(db, bcrypt));
-app.get("/profile/:id", profile.handleProfileGet(db));
-app.put("/image", image.handleImage(db));
-app.post("/imageurl", image.handleApiCall);
+app.get("/profile/:id", auth.requireAuth, profile.handleProfileGet(db));
+app.post('/profile/:id', auth.requireAuth, profile.handleProfileUpdate( db) )
+app.put("/image", auth.requireAuth, image.handleImage(db));
+app.post("/imageurl", auth.requireAuth, image.handleApiCall);
 
 app.get("/healthcheck", (req, res) => {
   // do app logic here to determine if app is truly healthy
