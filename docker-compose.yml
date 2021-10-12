@@ -1,8 +1,8 @@
 version: "3.8"
 
 services:
-  # Client - Frontend
-  client:
+  # React App - Frontend
+  frontend:
     container_name: client
     build:
       context: ./client
@@ -16,13 +16,15 @@ services:
     volumes:
       - ./client/src:/home/node/app/src:ro
       - /home/node/app/node_modules
+    depends_on:
+      - backend
     networks:
       - client-side
     ports:
       - 3000:3000
 
   # Express Server - Backend
-  server:
+  backend:
     container_name: server
     build:
       context: ./server
@@ -33,13 +35,16 @@ services:
     env_file:
       - ./.env
     environment:
-      POSTGRES_URI: postgres://metaface:docker@postgres:5432/metaface
-      # REDIS_URI: redis://redis:6379
+      POSTGRES_URI: postgres://metaface:docker@db:5432/metaface
+      REDIS_URI: redis://redis:6379
     working_dir: /home/node/app
     command: npm run start-watch
     volumes:
       - ./server:/home/node/app
       - backend-cache:/home/node/app/node_modules
+    depends_on:
+      - db
+      - redis
     networks:
       - client-side
       - server-side
@@ -48,15 +53,16 @@ services:
       - 9229:9229
       - 9230:9230
 
-  # Redis
-  # redis:
-  #   container_name: redis
-  #   image: redis
-  #   ports:
-  #     - 6379:6379
+  # Redis - Cache
+  redis:
+    image: redis:6.2.6-alpine3.14
+    networks:
+      - server-side
+    ports:
+      - 6379:6379
 
-  # PostgreSQL
-  postgres:
+  # PostgreSQL - Database
+  db:
     container_name: postgres
     build: ./postgres
     restart: always
