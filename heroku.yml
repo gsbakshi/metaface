@@ -7,7 +7,9 @@ build:
   docker:
     client: ./client/Dockerfile
     server: ./server/Dockerfile
-    redis: ./redis/Dockerfile
+    redis: redis:6.2.6-alpine3.14
   config:
     RAILS_ENV: development
     FOO: bar
+run:
+  server: npm run start-watch
