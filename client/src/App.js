@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 
 import "./App.scss";
 
@@ -11,14 +11,49 @@ import SignUpPage from "./pages/sign-up-page/sign-up-page.component";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
+  let history = useHistory();
 
   const loadUser = (data) => setCurrentUser(data);
   const logout = () => {
+    window.sessionStorage.clear();
     setCurrentUser(null);
   };
 
   const updateEntries = (count) =>
-    setCurrentUser({...currentUser, entries: count });
+    setCurrentUser({ ...currentUser, entries: count });
+
+  useEffect(() => {
+    let token = window.sessionStorage.getItem("token");
+    if (token) {
+      fetch("http://localhost:80/signin", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.id) {
+            fetch(`http://localhost:80/profile/${data.id}`, {
+              method: "get",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + token,
+              },
+            })
+              .then((res) => res.json())
+              .then((user) => {
+                if (user && user.email) {
+                  loadUser(user);
+                  history.push("/");
+                }
+              });
+          }
+        })
+        .catch(console.log);
+    }
+  }, [history]);
 
   return (
     <div className="App">
@@ -44,24 +79,12 @@ const App = () => {
             <Route
               exact
               path="/signin"
-              render={() =>
-                currentUser ? (
-                  <Redirect to="/" />
-                ) : (
-                  <SignInPage loadUser={loadUser} />
-                )
-              }
+              render={() => <SignInPage loadUser={loadUser} />}
             />
             <Route
               exact
               path="/register"
-              render={() =>
-                currentUser ? (
-                  <Redirect to="/" />
-                ) : (
-                  <SignUpPage loadUser={loadUser} />
-                )
-              }
+              render={() => <SignUpPage loadUser={loadUser} />}
             />
           </Switch>
         </div>
@@ -70,4 +93,5 @@ const App = () => {
     </div>
   );
 };
+
 export default App;

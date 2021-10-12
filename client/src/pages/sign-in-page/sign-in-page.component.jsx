@@ -9,6 +9,10 @@ const SignInPage = ({ loadUser }) => {
   const [password, setPassword] = useState("");
   let history = useHistory();
 
+  const saveAuthTokenInSession = (token) => {
+    window.sessionStorage.setItem("token", token);
+  };
+
   const handleSubmit = async (event) => {
     try {
       fetch("http://localhost:80/signin", {
@@ -21,8 +25,22 @@ const SignInPage = ({ loadUser }) => {
       })
         .then((response) => response.json())
         .then((data) => {
-          if (data.id) {
-            loadUser(data);
+          if (data.userId && data.success === "true") {
+            saveAuthTokenInSession(data.token);
+            fetch(`http://localhost:80/profile/${data.userId}`, {
+              method: "get",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + data.token,
+              },
+            })
+              .then((res) => res.json())
+              .then((user) => {
+                if (user && user.email) {
+                  loadUser(user);
+                  history.push("/");
+                }
+              });
           } else {
             // TODO make better alert dialog
             alert("wrong credentials");
