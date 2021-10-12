@@ -28,22 +28,18 @@ const HomePage = ({ user, updateEntries, logout }) => {
   };
 
   const calculateFaceCoordinates = (data) => {
-    if (data && data.outputs) {
-      const image = document.getElementById("inputimage");
-      const width = Number(image.width);
-      const height = Number(image.height);
-      return data.outputs[0].data.regions.map((face) => {
-        const clarifaiFace = face.region_info.bounding_box;
-        return {
-          leftCol: clarifaiFace.left_col * width,
-          topRow: clarifaiFace.top_row * height,
-          rightCol: width - clarifaiFace.right_col * width,
-          bottomRow: height - clarifaiFace.bottom_row * height,
-        };
-      });
-    } else {
-      return;
-    }
+    const image = document.getElementById("inputimage");
+    const width = Number(image.width);
+    const height = Number(image.height);
+    return data.outputs[0].data.regions.map((face) => {
+      const clarifaiFace = face.region_info.bounding_box;
+      return {
+        leftCol: clarifaiFace.left_col * width,
+        topRow: clarifaiFace.top_row * height,
+        rightCol: width - clarifaiFace.right_col * width,
+        bottomRow: height - clarifaiFace.bottom_row * height,
+      };
+    });
   };
 
   const detectAllFacesWithCoordinates = (boxes) => {
