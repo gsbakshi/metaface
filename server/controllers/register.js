@@ -1,4 +1,4 @@
-const { validate } = require("./validate");
+const { validate } = require("../middleware/validate");
 
 const handleRegister = (db, bcrypt) => (req, res) => {
   const { email, name, password } = req.body;
