@@ -10,6 +10,7 @@ const signToken = (username) => {
 
 const setToken = (key, value) => Promise.resolve(redisClient.set(key, value));
 
+// TODO fix promise with resolve and reject
 // const setToken = (key, value) => (resolve, reject) => {
 //   redisClient.set(key, value, (error, result) => {
 //     if (error) {
