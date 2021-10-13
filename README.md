@@ -9,6 +9,8 @@
 
 *Currently there's an issue with Live Demo, to test the app, follow the [Usage](#Usage) instructions*
 
+![Demo](https://github.com/gsbakshi/metaface/blob/master/images/two.gif)
+
 ### Project structure:
 
 ```
@@ -64,6 +66,9 @@ This assumes that you already have docker & docker compose installed on your sys
 - [React Native](https://facebook.github.io/react-native/)
 - [SCSS](https://sass-lang.com/)
 - [Docker](https://www.docker.com/)
+
+
+![Sign Up](https://github.com/gsbakshi/metaface/blob/master/images/one.gif)
 
 ![HomePage](https://github.com/gsbakshi/metaface/blob/master/images/4.png)
 ![Detect Person](https://github.com/gsbakshi/metaface/blob/master/images/6.png)
