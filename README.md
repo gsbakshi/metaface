@@ -6,7 +6,9 @@
 > Works best with images in landscape mode. Portrait photos work, but the styling may break at times.
 > Can detect multiple faces as well.
 
-*Currently there's an issue with Live Demo, to test the app, follow the [Usage](#Usage) instructions below*
+*Currently there's an issue with Live Demo, to test the app, follow the [Usage](#Usage) instructions*
+
+![Home Page](https://github.com/gsbakshi/metaface/blob/master/images/4.png)
 
 ### Project structure:
 
@@ -36,8 +38,7 @@
 #### Clone Repo
 
 ```shell
-$ git clone https://github.com/gsbakshi/metaface.git
-
+git clone https://github.com/gsbakshi/metaface.git
 ```
 This Command will copy a full project to your local environment
 
@@ -46,8 +47,7 @@ Then type `cd metaface` in your terminal.
 #### Run Docker
 
 ```
-$ docker compose up
-
+docker compose up
 ```
 
 This command will build all the components to get your server, database, caching and frontend started.
