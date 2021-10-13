@@ -2,12 +2,13 @@
 
 #
 
-> Metaface is a face detection web application using the [Clarifai Face Detect AI Model](https://www.clarifai.com/models/ai-face-detection/). Paste the image link and submit to view the output.
+Metaface is a face detection web application using the [Clarifai Face Detect AI Model](https://www.clarifai.com/models/ai-face-detection/). Paste the image link and submit to view the output.
+```
 > Works best with images in landscape mode. Portrait photos work, but the styling may break at times.
 > Can detect multiple faces as well.
 > Uses JWT to manage sessions.
-
-*Currently there's an issue with Live Demo, to test the app, follow the [Usage](#Usage) instructions*
+```
+> *Currently there's an issue with Live Demo, to test the app, follow the [Usage](#Usage) instructions*
 
 ![Demo](https://github.com/gsbakshi/metaface/blob/master/images/two.gif)
 
@@ -38,7 +39,7 @@
 
 #### Clone Repo
 
-```shell
+```
 git clone https://github.com/gsbakshi/metaface.git
 ```
 This Command will copy a full project to your local environment
