@@ -9,6 +9,9 @@
 *Currently there's an issue with Live Demo, to test the app, follow the [Usage](#Usage) instructions*
 
 ![HomePage](https://github.com/gsbakshi/metaface/blob/master/images/4.png)
+![HomePage](https://github.com/gsbakshi/metaface/blob/master/images/6.png)
+![HomePage](https://github.com/gsbakshi/metaface/blob/master/images/7.png)
+![HomePage](https://github.com/gsbakshi/metaface/blob/master/images/8.png)
 
 ### Project structure:
 
