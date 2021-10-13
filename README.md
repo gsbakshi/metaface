@@ -10,7 +10,7 @@ Metaface is a face detection web application using the [Clarifai Face Detect AI 
 
 > Uses JWT to manage sessions.
 
-> *Currently there's an issue with Live Demo, to test the app, follow the [Usage](#Usage) instructions*
+*Currently there's an issue with Live Demo, to test the app, follow the [Usage](#Usage) instructions*
 
 ![Demo](https://github.com/gsbakshi/metaface/blob/master/images/two.gif)
 
