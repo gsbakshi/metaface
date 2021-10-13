@@ -6,9 +6,11 @@ services:
     container_name: client
     build:
       context: ./client
-      target: development
+      # Uncomment this target for development build
+      # target: development
       args:
-        - NODE_ENV=development
+        # - NODE_ENV=development
+        - NODE_ENV=production
         - PORT=3000
     environment:
       - CI=true
@@ -21,7 +23,10 @@ services:
     networks:
       - client-side
     ports:
-      - 3000:3000
+      # Port forwarding for production app
+      - 3000:80
+      # Port forwarding for development app
+      # - 3000:3000
 
   # Express Server - Backend
   backend:
@@ -29,7 +34,8 @@ services:
     build:
       context: ./server
       args:
-        - NODE_ENV=development
+        # - NODE_ENV=development
+        - NODE_ENV=production
         - PORT=80
     restart: always
     env_file:
@@ -38,7 +44,8 @@ services:
       POSTGRES_URI: postgres://metaface:docker@db:5432/metaface
       REDIS_URI: redis://redis:6379
     working_dir: /home/node/app
-    command: npm run start-watch
+    # Uncomment command in development build to watch changes with nodemon
+    # command: npm run start-watch
     volumes:
       - ./server:/home/node/app
       - backend-cache:/home/node/app/node_modules
@@ -76,6 +83,7 @@ services:
     ports:
       - 5432:5432
 
+# Not in use currently. Need to enable docker swarm to allow secrets to work properly.
 # secrets:
 #   pg-password:
 #     file: secrets/pg_password.txt
