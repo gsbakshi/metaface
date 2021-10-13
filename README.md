@@ -6,7 +6,7 @@
 > Works best with images in landscape mode. Portrait photos work, but the styling may break at times.
 > Can detect multiple faces as well.
 
-* Currently there's an issue with Live Demo, to test the app, follow the [Usage](##Usage) instructions below*
+*Currently there's an issue with Live Demo, to test the app, follow the [Usage](##Usage) instructions below*
 
 ### Project structure:
 
