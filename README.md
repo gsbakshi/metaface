@@ -5,6 +5,7 @@
 > Metaface is a face detection web application using the [Clarifai Face Detect AI Model](https://www.clarifai.com/models/ai-face-detection/). Paste the image link and submit to view the output.
 > Works best with images in landscape mode. Portrait photos work, but the styling may break at times.
 > Can detect multiple faces as well.
+> Uses JWT to manage sessions.
 
 *Currently there's an issue with Live Demo, to test the app, follow the [Usage](#Usage) instructions*
 
