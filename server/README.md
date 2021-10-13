@@ -1,5 +1,3 @@
 # metaface-api
 
-Server and backend controllers for the metaface face detection application.
-
-Final project for ZTM course.
+Server, controllers, and middlewares for the metaface face detection application, using Express JS.
