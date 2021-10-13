@@ -73,7 +73,7 @@ This assumes that you already have docker & docker compose installed on your sys
 
 ![Sign Up](https://github.com/gsbakshi/metaface/blob/master/images/one.gif)
 
-![HomePage](https://github.com/gsbakshi/metaface/blob/master/images/4.png)
+<!-- ![HomePage](https://github.com/gsbakshi/metaface/blob/master/images/4.png)
 ![Detect Person](https://github.com/gsbakshi/metaface/blob/master/images/6.png)
 ![Detect People](https://github.com/gsbakshi/metaface/blob/master/images/7.png)
-![Detect People 2](https://github.com/gsbakshi/metaface/blob/master/images/8.png)
+![Detect People 2](https://github.com/gsbakshi/metaface/blob/master/images/8.png) -->
