@@ -43,10 +43,9 @@ Metaface is a face detection web application using the [Clarifai Face Detect AI 
 
 ```
 git clone https://github.com/gsbakshi/metaface.git
+cd metaface
 ```
-This Command will copy a full project to your local environment
-
-Then type `cd metaface` in your terminal.
+This Command will copy a full project to your local environment and then enter the metaface directory.
 
 #### Run Docker
 
