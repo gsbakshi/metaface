@@ -23,6 +23,6 @@
   },
   "devDependencies": {
     "concurrently": "^6.2.1",
-    "snyk": "^1.720.0"
+    "snyk": "^1.996.0"
   }
 }
